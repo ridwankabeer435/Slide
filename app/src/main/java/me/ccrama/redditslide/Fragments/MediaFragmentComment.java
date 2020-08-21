@@ -77,7 +77,6 @@ public class MediaFragmentComment extends Fragment {
     private boolean               hidden;
     private long                   stopPosition;
     public  boolean               isGif;
-    private GifUtils.AsyncLoadGif gif;
     private CommentUrlObject      s;
     private OkHttpClient          client;
     private Gson                  gson;
@@ -330,7 +329,7 @@ public class MediaFragmentComment extends Fragment {
         rootView.findViewById(R.id.submission_image).setVisibility(View.GONE);
         final ProgressBar loader = rootView.findViewById(R.id.gifprogress);
         rootView.findViewById(R.id.progress).setVisibility(View.GONE);
-        gif = new GifUtils.AsyncLoadGif(getActivity(), videoView, loader,
+        GifUtils.AsyncLoadGif gif = new GifUtils.AsyncLoadGif(getActivity(), videoView, loader,
                 rootView.findViewById(R.id.placeholder), false, true, sub);
         gif.execute(dat);
     }
@@ -614,12 +613,10 @@ public class MediaFragmentComment extends Fragment {
                                         .imageScaleType(ImageScaleType.NONE)
                                         .cacheInMemory(false)
                                         .build(), new ImageLoadingListener() {
-                                    private View mView;
 
                                     @Override
                                     public void onLoadingStarted(String imageUri, View view) {
                                         imageShown = true;
-                                        mView = view;
                                     }
 
                                     @Override
