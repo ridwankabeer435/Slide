@@ -45,6 +45,8 @@ import net.dean.jraw.models.Submission;
 import net.dean.jraw.models.SubredditRule;
 import net.dean.jraw.models.VoteDirection;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Locale;
 
 import me.ccrama.redditslide.ActionStates;
@@ -554,7 +556,7 @@ public class PopulateShadowboxInfo {
                                         .negativeText(R.string.btn_cancel)
                                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                                             @Override
-                                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                            public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                                 RadioGroup reasonGroup = dialog.getCustomView()
                                                         .findViewById(R.id.report_reasons);
                                                 String reportReason;

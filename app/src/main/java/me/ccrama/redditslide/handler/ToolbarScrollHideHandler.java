@@ -6,6 +6,8 @@ import android.view.animation.LinearInterpolator;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Created by ccrama on 2/18/2016.
  * Adapted from http://rylexr.tinbytes.com/2015/04/27/how-to-hideshow-android-toolbar-when-scrolling-google-play-musics-behavior/
@@ -34,7 +36,7 @@ public class ToolbarScrollHideHandler extends RecyclerView.OnScrollListener {
     boolean scrollingUp;
 
     @Override
-    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+    public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
         if (newState == RecyclerView.SCROLL_STATE_IDLE) {
             if(reset){
                 verticalOffset = 0;
@@ -69,7 +71,7 @@ public class ToolbarScrollHideHandler extends RecyclerView.OnScrollListener {
     }
     public boolean reset = false;
     @Override
-    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+    public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
         if(verticalOffset == 0 && dy < 0){ //if scrolling begins halfway through an adapter, don't treat it like going negative and instead reset the start position to 0
             dy = 0;
         }

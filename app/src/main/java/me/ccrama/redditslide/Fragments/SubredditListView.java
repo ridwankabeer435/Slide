@@ -17,6 +17,8 @@ import com.mikepenz.itemanimators.SlideUpAlphaAnimator;
 
 import net.dean.jraw.models.Subreddit;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import me.ccrama.redditslide.Activities.BaseActivity;
@@ -93,7 +95,7 @@ public class SubredditListView extends Fragment {
         rv.addOnScrollListener(new ToolbarScrollHideHandler(((BaseActivity) getActivity()).mToolbar, getActivity().findViewById(R.id.header)) {
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 if (!posts.loading && !posts.nomore) {
                     visibleItemCount = rv.getLayoutManager().getChildCount();

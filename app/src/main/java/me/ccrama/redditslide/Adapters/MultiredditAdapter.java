@@ -23,6 +23,8 @@ import com.google.android.material.snackbar.Snackbar;
 import net.dean.jraw.managers.AccountManager;
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -86,8 +88,9 @@ public class MultiredditAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     int tag = 1;
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         tag++;
 
         if (i == SPACER) {
@@ -134,7 +137,7 @@ public class MultiredditAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }, 500);
     }
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder2, final int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder holder2, final int pos) {
         int i = (pos != 0) ? (pos - 1) : pos;
 
         if (holder2 instanceof SubmissionViewHolder) {

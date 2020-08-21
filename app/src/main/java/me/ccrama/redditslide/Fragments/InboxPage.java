@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.Adapters.InboxAdapter;
 import me.ccrama.redditslide.Adapters.InboxMessages;
 import me.ccrama.redditslide.Constants;
@@ -72,7 +74,7 @@ public class InboxPage extends Fragment {
         );
         rv.addOnScrollListener(new ToolbarScrollHideHandler((getActivity()).findViewById(R.id.toolbar), getActivity().findViewById(R.id.header)) {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 visibleItemCount = rv.getLayoutManager().getChildCount();
                 totalItemCount = rv.getLayoutManager().getItemCount();

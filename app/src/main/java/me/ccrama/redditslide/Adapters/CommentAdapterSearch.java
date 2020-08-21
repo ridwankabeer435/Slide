@@ -40,6 +40,7 @@ import net.dean.jraw.models.DistinguishedStatus;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -85,6 +86,7 @@ public class CommentAdapterSearch extends RecyclerView.Adapter<RecyclerView.View
         return new UserFilter(this, originalDataSet);
     }
 
+    @NotNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
@@ -271,7 +273,7 @@ public class CommentAdapterSearch extends RecyclerView.Adapter<RecyclerView.View
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder firstHolder, int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder firstHolder, int pos) {
 
         final CommentViewHolder holder = (CommentViewHolder) firstHolder;
 

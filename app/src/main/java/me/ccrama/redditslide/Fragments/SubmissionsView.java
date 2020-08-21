@@ -36,6 +36,8 @@ import com.mikepenz.itemanimators.SlideUpAlphaAnimator;
 
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -79,7 +81,7 @@ public class SubmissionsView extends Fragment implements SubmissionDisplay {
     private static Submission           currentSubmission;
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
         final int currentOrientation = newConfig.orientation;
@@ -182,7 +184,7 @@ public class SubmissionsView extends Fragment implements SubmissionDisplay {
                                 .input(getString(R.string.search_msg), "",
                                         new MaterialDialog.InputCallback() {
                                             @Override
-                                            public void onInput(MaterialDialog materialDialog,
+                                            public void onInput(@NotNull MaterialDialog materialDialog,
                                                                 CharSequence charSequence) {
                                                 term = charSequence.toString();
                                             }
@@ -617,7 +619,7 @@ public class SubmissionsView extends Fragment implements SubmissionDisplay {
             toolbarScroll =
                     new ToolbarScrollHideHandler(((BaseActivity) getActivity()).mToolbar, header) {
                         @Override
-                        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                        public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                             super.onScrolled(recyclerView, dx, dy);
 
                             if (!posts.loading && !posts.nomore && !posts.offline && !adapter.isError){
@@ -680,7 +682,7 @@ public class SubmissionsView extends Fragment implements SubmissionDisplay {
                         }
 
                         @Override
-                        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                        public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
 //                switch (newState) {
 //                    case RecyclerView.SCROLL_STATE_IDLE:
 //                        ((Reddit)getActivity().getApplicationContext()).getImageLoader().resume();

@@ -30,6 +30,8 @@ import net.dean.jraw.models.MultiReddit;
 import net.dean.jraw.models.MultiSubreddit;
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -136,7 +138,7 @@ public class MultiredditView extends Fragment implements SubmissionDisplay {
                                         new MaterialDialog.InputCallback() {
                                             @Override
                                             public void onInput(
-                                                    MaterialDialog materialDialog,
+                                                    @NotNull MaterialDialog materialDialog,
                                                     CharSequence charSequence) {
                                                 term = charSequence.toString();
                                             }
@@ -290,7 +292,7 @@ public class MultiredditView extends Fragment implements SubmissionDisplay {
 
             rv.addOnScrollListener(new ToolbarScrollHideHandler((getActivity()).findViewById(R.id.toolbar), getActivity().findViewById(R.id.header)) {
                 @Override
-                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
 
                     visibleItemCount = rv.getLayoutManager().getChildCount();
@@ -376,7 +378,7 @@ public class MultiredditView extends Fragment implements SubmissionDisplay {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
         final int currentOrientation = newConfig.orientation;

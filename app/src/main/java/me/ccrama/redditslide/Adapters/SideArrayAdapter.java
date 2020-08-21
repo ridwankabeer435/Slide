@@ -20,6 +20,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,7 @@ public class SideArrayAdapter extends ArrayAdapter<String> {
         return false;
     }
 
+    @NotNull
     @Override
     public Filter getFilter() {
 
@@ -81,8 +83,9 @@ public class SideArrayAdapter extends ArrayAdapter<String> {
     int                 height;
     Map<String, String> multiToMatch;
 
+    @NotNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, @NotNull ViewGroup parent) {
         if (position < fitems.size()) {
             convertView = LayoutInflater.from(getContext())
                     .inflate(R.layout.subforsublist, parent, false);

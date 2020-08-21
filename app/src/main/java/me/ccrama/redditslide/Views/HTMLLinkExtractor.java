@@ -1,5 +1,7 @@
 package me.ccrama.redditslide.Views;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,6 +67,7 @@ class HTMLLinkExtractor {
         HtmlLink() {
         }
 
+        @NotNull
         @Override
         public String toString() {
             return "Link : " + this.link + " Link Text : " + this.linkText;

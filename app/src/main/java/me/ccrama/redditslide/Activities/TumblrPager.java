@@ -288,6 +288,7 @@ public class TumblrPager extends FullScreenActivity
             super(m, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 
@@ -745,13 +746,11 @@ public class TumblrPager extends FullScreenActivity
     }
 
     @Override
-    public void onFolderSelection(FolderChooserDialogCreate dialog, File folder, boolean isSaveToLocation) {
-        if (folder != null) {
-            Reddit.appRestart.edit().putString("imagelocation", folder.getAbsolutePath()).apply();
-            Toast.makeText(this,
-                    getString(R.string.settings_set_image_location, folder.getAbsolutePath())
-                            + folder.getAbsolutePath(), Toast.LENGTH_LONG).show();
+    public void onFolderSelection(@NotNull FolderChooserDialogCreate dialog, @NotNull File folder, boolean isSaveToLocation) {
+        Reddit.appRestart.edit().putString("imagelocation", folder.getAbsolutePath()).apply();
+        Toast.makeText(this,
+                getString(R.string.settings_set_image_location, folder.getAbsolutePath())
+                        + folder.getAbsolutePath(), Toast.LENGTH_LONG).show();
 
-        }
     }
 }

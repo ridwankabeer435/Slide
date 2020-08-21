@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import net.dean.jraw.models.Subreddit;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -76,8 +78,9 @@ public class SubredditAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     int tag = 1;
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         tag++;
 
         if (i == SPACER) {
@@ -97,7 +100,7 @@ public class SubredditAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder2, final int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder holder2, final int pos) {
 
         int i = pos != 0 ? pos - 1 : pos;
         if (holder2 instanceof SubredditViewHolder) {

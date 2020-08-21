@@ -10,12 +10,15 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.R;
 
 
 public class ErrorAdapter extends RecyclerView.Adapter<ErrorAdapter.ViewHolder> {
 
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.nointernet, parent, false);
@@ -23,7 +26,7 @@ public class ErrorAdapter extends RecyclerView.Adapter<ErrorAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NotNull ViewHolder holder, int position) {
 
     }
 

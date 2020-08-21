@@ -43,6 +43,8 @@ import net.dean.jraw.models.Submission;
 import net.dean.jraw.paginators.Sorting;
 import net.dean.jraw.paginators.TimePeriod;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -172,7 +174,7 @@ public class MultiredditOverview extends BaseActivityAnim {
                                                     new MaterialDialog.InputCallback() {
                                                         @Override
                                                         public void onInput(
-                                                                MaterialDialog materialDialog,
+                                                                @NotNull MaterialDialog materialDialog,
                                                                 CharSequence charSequence) {
                                                             term = charSequence.toString();
                                                         }
@@ -766,6 +768,7 @@ public class MultiredditOverview extends BaseActivityAnim {
             });
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
             Fragment f = new MultiredditView();
@@ -786,7 +789,7 @@ public class MultiredditOverview extends BaseActivityAnim {
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        public void setPrimaryItem(@NotNull ViewGroup container, int position, @NotNull Object object) {
             if (getCurrentFragment() != object) {
                 mCurrentFragment = ((Fragment) object);
             }

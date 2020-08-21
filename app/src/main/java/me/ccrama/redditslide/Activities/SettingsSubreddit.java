@@ -19,6 +19,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import net.dean.jraw.models.Subreddit;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -210,7 +212,7 @@ public class SettingsSubreddit extends BaseActivityAnim {
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.post_floating_action_button);
         recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 if (dy <= 0 && fab.getId() != 0) {
                     fab.show();
                 } else {
@@ -219,7 +221,7 @@ public class SettingsSubreddit extends BaseActivityAnim {
             }
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
         });

@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.devspark.robototextview.RobotoTypefaces;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -82,8 +84,9 @@ public class AlbumView extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             });
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         if (viewType == 1) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.album_image, parent, false);
             return new AlbumViewHolder(v);
@@ -112,7 +115,7 @@ public class AlbumView extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder2, int i) {
+    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder holder2, int i) {
         if (holder2 instanceof AlbumViewHolder) {
             final int position = paddingBottom ? i : i - 1;
 

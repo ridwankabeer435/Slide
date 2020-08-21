@@ -10,6 +10,8 @@ import androidx.core.view.ViewCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Created by ccrama on 7/20/2015.
  */
@@ -19,8 +21,9 @@ class AutoHideFAB extends FloatingActionButton.Behavior {
     }
 
     @Override
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child, View target,
-                               int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, @NonNull int[] consumed) {
+    public void onNestedScroll(@NotNull CoordinatorLayout coordinatorLayout,
+                               @NotNull FloatingActionButton child, @NotNull View target, int dxConsumed,
+                               int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, @NonNull int[] consumed) {
         super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type, consumed);
         if (dyConsumed > 0 && child.getVisibility() == View.VISIBLE) {
             child.hide();
@@ -30,7 +33,9 @@ class AutoHideFAB extends FloatingActionButton.Behavior {
     }
 
     @Override
-    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child, View directTargetChild, View target, int nestedScrollAxes, int type) {
+    public boolean onStartNestedScroll(@NotNull CoordinatorLayout coordinatorLayout,
+                                       @NotNull FloatingActionButton child, @NotNull View directTargetChild,
+                                       @NotNull View target, int nestedScrollAxes, int type) {
         return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL;
     }
 

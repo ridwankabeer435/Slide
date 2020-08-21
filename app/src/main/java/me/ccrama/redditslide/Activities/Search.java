@@ -26,6 +26,7 @@ import net.dean.jraw.paginators.TimePeriod;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
@@ -176,7 +177,7 @@ public class Search extends BaseActivityAnim {
                         .alwaysCallInputCallback()
                         .input(getString(R.string.search_msg), where, new MaterialDialog.InputCallback() {
                             @Override
-                            public void onInput(MaterialDialog materialDialog, CharSequence charSequence) {
+                            public void onInput(@NotNull MaterialDialog materialDialog, CharSequence charSequence) {
                                 where = charSequence.toString();
                             }
                         });
@@ -275,7 +276,7 @@ public class Search extends BaseActivityAnim {
 
         rv.addOnScrollListener(new ToolbarScrollHideHandler(mToolbar, findViewById(R.id.header)) {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
                 visibleItemCount = rv.getLayoutManager().getChildCount();
@@ -331,7 +332,7 @@ public class Search extends BaseActivityAnim {
         );
     }
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
         final int currentOrientation = newConfig.orientation;

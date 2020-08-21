@@ -45,6 +45,7 @@ import net.dean.jraw.models.Submission;
 import net.dean.jraw.models.SubredditRule;
 
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -796,7 +797,7 @@ public class PopulateNewsViewHolder {
                                 .negativeText(R.string.btn_cancel)
                                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                                     @Override
-                                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                         RadioGroup reasonGroup = dialog.getCustomView()
                                                 .findViewById(R.id.report_reasons);
                                         String reportReason;

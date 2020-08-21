@@ -47,6 +47,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
 
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -519,7 +520,7 @@ public class MediaView extends FullScreenActivity
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NotNull Bundle outState) {
         super.onSaveInstanceState(outState);
         if (videoView != null) {
             stopPosition = videoView.getCurrentPosition();
@@ -1358,21 +1359,19 @@ public class MediaView extends FullScreenActivity
     }
 
     @Override
-    public void onFolderSelection(FolderChooserDialogCreate dialog, File folder, boolean isSaveToLocation) {
-        if (folder != null) {
-            if (isSaveToLocation) {
-                Intent i = new Intent(this, ImageDownloadNotificationService.class);
-                //always download the original file, or use the cached original if that is currently displayed
-                i.putExtra("actuallyLoaded", contentUrl);
-                i.putExtra("saveToLocation", folder.getAbsolutePath());
-                if (subreddit != null && !subreddit.isEmpty()) i.putExtra("subreddit", subreddit);
-                startService(i);
-            } else {
-                Reddit.appRestart.edit().putString("imagelocation", folder.getAbsolutePath()).apply();
-                Toast.makeText(this,
-                        getString(R.string.settings_set_image_location, folder.getAbsolutePath()),
-                        Toast.LENGTH_LONG).show();
-            }
+    public void onFolderSelection(@NotNull FolderChooserDialogCreate dialog, @NotNull File folder, boolean isSaveToLocation) {
+        if (isSaveToLocation) {
+            Intent i = new Intent(this, ImageDownloadNotificationService.class);
+            //always download the original file, or use the cached original if that is currently displayed
+            i.putExtra("actuallyLoaded", contentUrl);
+            i.putExtra("saveToLocation", folder.getAbsolutePath());
+            if (subreddit != null && !subreddit.isEmpty()) i.putExtra("subreddit", subreddit);
+            startService(i);
+        } else {
+            Reddit.appRestart.edit().putString("imagelocation", folder.getAbsolutePath()).apply();
+            Toast.makeText(this,
+                    getString(R.string.settings_set_image_location, folder.getAbsolutePath()),
+                    Toast.LENGTH_LONG).show();
         }
     }
 }

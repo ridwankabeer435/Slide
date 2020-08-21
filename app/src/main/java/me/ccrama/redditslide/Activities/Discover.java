@@ -19,6 +19,8 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.tabs.TabLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.ColorPreferences;
 import me.ccrama.redditslide.Fragments.SubredditListView;
 import me.ccrama.redditslide.R;
@@ -52,7 +54,7 @@ public class Discover extends BaseActivityAnim {
                         .inputRange(3, 100)
                         .input(getString(R.string.discover_search), null, new MaterialDialog.InputCallback() {
                             @Override
-                            public void onInput(MaterialDialog dialog, CharSequence input) {
+                            public void onInput(@NotNull MaterialDialog dialog, CharSequence input) {
                                 if (input.length() >= 3) {
                                     dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
                                 } else {
@@ -127,6 +129,7 @@ public class Discover extends BaseActivityAnim {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
             Fragment f = new SubredditListView();

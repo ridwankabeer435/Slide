@@ -15,6 +15,7 @@
 
 package me.ccrama.redditslide.util;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -63,6 +64,7 @@ public class SkuDetails {
         return mDescription;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "SkuDetails:" + mJson;

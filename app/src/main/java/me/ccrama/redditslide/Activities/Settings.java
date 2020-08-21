@@ -33,6 +33,8 @@ import androidx.appcompat.widget.SwitchCompat;
 import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.google.common.base.Strings;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -671,7 +673,7 @@ public class Settings extends BaseActivity
     }
 
     @Override
-    public void onFolderSelection(@NonNull FolderChooserDialogCreate dialog, @NonNull File folder, boolean isSaveToLocation) {
+    public void onFolderSelection(@NotNull @NonNull FolderChooserDialogCreate dialog, @NotNull @NonNull File folder, boolean isSaveToLocation) {
         mSettingsGeneralFragment.onFolderSelection(dialog, folder, false);
     }
 

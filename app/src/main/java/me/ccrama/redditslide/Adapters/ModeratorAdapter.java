@@ -53,6 +53,8 @@ import net.dean.jraw.models.PublicContribution;
 import net.dean.jraw.models.Submission;
 import net.dean.jraw.models.VoteDirection;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -128,8 +130,9 @@ public class ModeratorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         if (i == SPACER) {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.spacer, viewGroup, false);
             return new SpacerViewHolder(v);
@@ -203,7 +206,7 @@ public class ModeratorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder firstHold, final int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder firstHold, final int pos) {
         int i = pos != 0 ? pos - 1 : pos;
 
         if (firstHold instanceof SubmissionViewHolder) {
@@ -898,7 +901,7 @@ public class ModeratorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         mContext.getString(R.string.mod_remove_template), false,
                         new MaterialDialog.InputCallback() {
                             @Override
-                            public void onInput(MaterialDialog dialog, CharSequence input) {
+                            public void onInput(@NotNull MaterialDialog dialog, CharSequence input) {
                             }
                         })
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES)
@@ -912,7 +915,7 @@ public class ModeratorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 })
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
-                    public void onClick(final MaterialDialog dialog, DialogAction which) {
+                    public void onClick(@NotNull final MaterialDialog dialog, @NotNull DialogAction which) {
                         removeCommentReason(comment, mContext, holder, dialog.getInputEditText().getText().toString());
                     }
                 })

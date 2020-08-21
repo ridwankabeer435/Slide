@@ -22,6 +22,8 @@ import androidx.fragment.app.FragmentActivity;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -180,7 +182,7 @@ public class FolderChooserDialogCreate extends DialogFragment implements Materia
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NotNull Context context) {
         super.onAttach(context);
         mCallback = (FolderCallback) context;
     }

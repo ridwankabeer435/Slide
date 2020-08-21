@@ -464,8 +464,9 @@ public class LiveThread extends BaseActivityAnim {
             layoutInflater = LayoutInflater.from(context);
         }
 
+        @NotNull
         @Override
-        public PaginatorAdapter.ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public PaginatorAdapter.ItemHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
             View itemView = layoutInflater.inflate(R.layout.live_list_item, parent, false);
             return new ItemHolder(itemView);
         }

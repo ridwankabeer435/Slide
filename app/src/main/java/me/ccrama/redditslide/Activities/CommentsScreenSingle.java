@@ -19,6 +19,8 @@ import com.afollestad.materialdialogs.AlertDialogWrapper;
 
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -289,13 +291,14 @@ public class CommentsScreenSingle extends BaseActivityAnim {
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        public void setPrimaryItem(@NotNull ViewGroup container, int position, @NotNull Object object) {
             if (getCurrentFragment() != object) {
                 mCurrentFragment = (Fragment) object;
             }
             super.setPrimaryItem(container, position, object);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
             if (i == 0) {

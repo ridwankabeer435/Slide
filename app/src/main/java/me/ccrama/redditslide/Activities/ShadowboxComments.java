@@ -9,6 +9,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import net.dean.jraw.models.Comment;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import me.ccrama.redditslide.Adapters.CommentUrlObject;
@@ -47,6 +49,7 @@ public class ShadowboxComments extends FullScreenActivity {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 

@@ -23,6 +23,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.afollestad.materialdialogs.AlertDialogWrapper;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.ColorPreferences;
 import me.ccrama.redditslide.R;
 import me.ccrama.redditslide.Reddit;
@@ -341,6 +343,7 @@ public class Tutorial extends AppCompatActivity {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {

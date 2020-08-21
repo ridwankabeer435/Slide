@@ -9,6 +9,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import me.ccrama.redditslide.Adapters.MultiredditPosts;
@@ -158,6 +160,7 @@ public class Shadowbox extends FullScreenActivity implements SubmissionDisplay {
 
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 

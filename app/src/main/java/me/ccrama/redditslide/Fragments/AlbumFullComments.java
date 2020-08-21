@@ -67,7 +67,7 @@ public class AlbumFullComments extends Fragment {
         ((RecyclerView) list).addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 ValueAnimator va = null;
 
@@ -112,7 +112,7 @@ public class AlbumFullComments extends Fragment {
             }
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
         });

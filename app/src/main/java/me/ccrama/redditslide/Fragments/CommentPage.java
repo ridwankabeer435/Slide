@@ -61,6 +61,8 @@ import net.dean.jraw.paginators.Sorting;
 import net.dean.jraw.paginators.TimePeriod;
 import net.dean.jraw.paginators.UserRecordPaginator;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -1941,7 +1943,7 @@ public class CommentPage extends Fragment implements Toolbar.OnMenuItemClickList
                     v.findViewById(R.id.progress),
                     SettingValues.commentAutoHide ? v.findViewById(R.id.commentnav) : null) {
                 @Override
-                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
                     if (SettingValues.fabComments) {
                         if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_DRAGGING

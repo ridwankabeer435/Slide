@@ -47,6 +47,8 @@ import net.dean.jraw.models.Captcha;
 import net.dean.jraw.models.Message;
 import net.dean.jraw.models.PrivateMessage;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -120,8 +122,9 @@ public class InboxAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return TOP_LEVEL;
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         if (i == SPACER) {
             View v = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.spacer, viewGroup, false);
@@ -144,7 +147,7 @@ public class InboxAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder viewHolder, int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder viewHolder, int pos) {
         int i = pos != 0 ? pos - 1 : pos;
 
         if (!(viewHolder instanceof ContributionAdapter.EmptyViewHolder)

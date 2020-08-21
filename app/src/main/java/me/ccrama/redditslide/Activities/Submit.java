@@ -37,6 +37,7 @@ import net.dean.jraw.managers.AccountManager;
 import net.dean.jraw.models.Submission;
 import net.dean.jraw.models.Subreddit;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
@@ -569,7 +570,7 @@ public class Submit extends BaseActivity {
                     .positiveText(c.getString(R.string.btn_upload))
                     .onPositive(new MaterialDialog.SingleButtonCallback() {
                         @Override
-                        public void onClick(MaterialDialog d, DialogAction w) {
+                        public void onClick(@NotNull MaterialDialog d, @NotNull DialogAction w) {
                             d.dismiss();
                             dialog.show();
                             execute(uri);
@@ -578,7 +579,7 @@ public class Submit extends BaseActivity {
                     .negativeText(c.getString(R.string.btn_cancel))
                     .onNegative(new MaterialDialog.SingleButtonCallback() {
                         @Override
-                        public void onClick(MaterialDialog d, DialogAction w) {
+                        public void onClick(@NotNull MaterialDialog d, @NotNull DialogAction w) {
                             d.dismiss();
                         }
                     })
@@ -751,7 +752,7 @@ public class Submit extends BaseActivity {
                     .positiveText(c.getString(R.string.btn_upload))
                     .onPositive(new MaterialDialog.SingleButtonCallback() {
                         @Override
-                        public void onClick(MaterialDialog d, DialogAction w) {
+                        public void onClick(@NotNull MaterialDialog d, @NotNull DialogAction w) {
                             d.dismiss();
                             dialog.show();
                             execute(uris);
@@ -760,7 +761,7 @@ public class Submit extends BaseActivity {
                     .negativeText(c.getString(R.string.btn_cancel))
                     .onNegative(new MaterialDialog.SingleButtonCallback() {
                         @Override
-                        public void onClick(MaterialDialog d, DialogAction w) {
+                        public void onClick(@NotNull MaterialDialog d, @NotNull DialogAction w) {
                             d.dismiss();
                         }
                     })
@@ -860,7 +861,7 @@ public class Submit extends BaseActivity {
                             }
 
                             @Override
-                            public void writeTo(BufferedSink sink) throws IOException {
+                            public void writeTo(@NotNull BufferedSink sink) throws IOException {
 
                             }
                         })

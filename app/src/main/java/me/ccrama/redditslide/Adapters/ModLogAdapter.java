@@ -24,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import net.dean.jraw.models.ModAction;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Locale;
 
 import me.ccrama.redditslide.Authentication;
@@ -77,8 +79,9 @@ public class ModLogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         if (i == SPACER) {
             View v = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.spacer, viewGroup, false);
@@ -104,7 +107,7 @@ public class ModLogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder firstHold, final int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder firstHold, final int pos) {
         int i = pos != 0 ? pos - 1 : pos;
 
         if (firstHold instanceof ModLogViewHolder) {

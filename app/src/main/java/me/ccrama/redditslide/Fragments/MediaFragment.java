@@ -35,6 +35,7 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import net.dean.jraw.models.Submission;
 
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -125,7 +126,7 @@ public class MediaFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NotNull Bundle outState) {
         super.onSaveInstanceState(outState);
         if (videoView != null) {
             stopPosition = videoView.getCurrentPosition();

@@ -22,6 +22,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import net.dean.jraw.managers.InboxManager;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -253,6 +255,7 @@ public class Inbox extends BaseActivityAnim {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
             Fragment f = new InboxPage();

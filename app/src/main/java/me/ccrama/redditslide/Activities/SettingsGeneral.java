@@ -5,6 +5,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 
 import me.ccrama.redditslide.Fragments.FolderChooserDialogCreate;
@@ -32,7 +34,7 @@ public class SettingsGeneral extends BaseActivityAnim
     }
 
     @Override
-    public void onFolderSelection(@NonNull FolderChooserDialogCreate dialog, @NonNull File folder, boolean isSaveToLocation) {
+    public void onFolderSelection(@NotNull @NonNull FolderChooserDialogCreate dialog, @NotNull @NonNull File folder, boolean isSaveToLocation) {
         fragment.onFolderSelection(dialog, folder, false);
     }
 

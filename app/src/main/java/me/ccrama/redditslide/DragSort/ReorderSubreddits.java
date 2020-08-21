@@ -55,6 +55,8 @@ import net.dean.jraw.models.Subreddit;
 import net.dean.jraw.paginators.SubredditSearchPaginator;
 import net.dean.jraw.paginators.UserSubredditsPaginator;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -418,24 +420,24 @@ public class ReorderSubreddits extends BaseActivityAnim {
                                     .input(getString(R.string.reorder_subreddit_name), null, false,
                                             new MaterialDialog.InputCallback() {
                                                 @Override
-                                                public void onInput(MaterialDialog dialog,
-                                                        CharSequence raw) {
+                                                public void onInput(@NotNull MaterialDialog dialog,
+                                                                    CharSequence raw) {
                                                     input = raw.toString();
                                                 }
                                             })
                                     .positiveText(R.string.btn_add)
                                     .onPositive(new MaterialDialog.SingleButtonCallback() {
                                         @Override
-                                        public void onClick(MaterialDialog dialog,
-                                                DialogAction which) {
+                                        public void onClick(@NotNull MaterialDialog dialog,
+                                                            @NotNull DialogAction which) {
                                             new AsyncGetSubreddit().execute(input);
                                         }
                                     })
                                     .negativeText(R.string.btn_cancel)
                                     .onNegative(new MaterialDialog.SingleButtonCallback() {
                                         @Override
-                                        public void onClick(MaterialDialog dialog,
-                                                DialogAction which) {
+                                        public void onClick(@NotNull MaterialDialog dialog,
+                                                            @NotNull DialogAction which) {
 
                                         }
                                     });
@@ -457,8 +459,8 @@ public class ReorderSubreddits extends BaseActivityAnim {
                             .input("example.com" + getString(R.string.reorder_domain_placeholder),
                                     null, false, new MaterialDialog.InputCallback() {
                                         @Override
-                                        public void onInput(MaterialDialog dialog,
-                                                CharSequence raw) {
+                                        public void onInput(@NotNull MaterialDialog dialog,
+                                                            CharSequence raw) {
                                             input = raw.toString()
                                                     .replaceAll("\\s",
                                                             ""); //remove whitespace from input
@@ -475,7 +477,7 @@ public class ReorderSubreddits extends BaseActivityAnim {
                             .inputRange(1, 35)
                             .onPositive(new MaterialDialog.SingleButtonCallback() {
                                 @Override
-                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                     try {
                                         String url = (input);
 
@@ -508,7 +510,7 @@ public class ReorderSubreddits extends BaseActivityAnim {
                             .negativeText(R.string.btn_cancel)
                             .onNegative(new MaterialDialog.SingleButtonCallback() {
                                 @Override
-                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
 
                                 }
                             })
@@ -531,7 +533,7 @@ public class ReorderSubreddits extends BaseActivityAnim {
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_DRAGGING) {
                     diff += dy;
@@ -722,8 +724,9 @@ public class ReorderSubreddits extends BaseActivityAnim {
             this.items = items;
         }
 
+        @NotNull
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
             if (viewType == 2) {
                 View v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.spacer, parent, false);
@@ -846,7 +849,7 @@ public class ReorderSubreddits extends BaseActivityAnim {
         }
 
         @Override
-        public void onBindViewHolder(final RecyclerView.ViewHolder holderB, final int position) {
+        public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder holderB, final int position) {
             if (holderB instanceof ViewHolder) {
                 final ViewHolder holder = (ViewHolder) holderB;
                 final String origPos = items.get(position);

@@ -36,6 +36,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.R;
 
 
@@ -48,7 +50,7 @@ class DragSortRecycler extends RecyclerView.ItemDecoration implements RecyclerVi
     private final RecyclerView.OnScrollListener scrollListener = new RecyclerView.OnScrollListener() {
 
         @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             debugLog("Scrolled: " + dx + " " + dy);
             fingerAnchorY -= dy;
@@ -120,7 +122,8 @@ class DragSortRecycler extends RecyclerView.ItemDecoration implements RecyclerVi
     }
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView rv, RecyclerView.State state) {
+    public void getItemOffsets(@NotNull Rect outRect, @NotNull View view,
+                               @NotNull RecyclerView rv, @NotNull RecyclerView.State state) {
         super.getItemOffsets(outRect, view, rv, state);
 
         debugLog("getItemOffsets");
@@ -305,7 +308,7 @@ class DragSortRecycler extends RecyclerView.ItemDecoration implements RecyclerVi
     }
 
     @Override
-    public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+    public void onTouchEvent(@NotNull RecyclerView rv, MotionEvent e) {
         debugLog("onTouchEvent");
 
         if ((e.getAction() == MotionEvent.ACTION_UP) ||
@@ -374,7 +377,7 @@ class DragSortRecycler extends RecyclerView.ItemDecoration implements RecyclerVi
     }
 
     @Override
-    public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
+    public void onDrawOver(@NotNull Canvas c, @NotNull RecyclerView parent, @NotNull RecyclerView.State state) {
         if (floatingItem != null) {
             floatingItem.setAlpha((int) (255 * floatingItemAlpha));
             bgColor.setColor(floatingItemBgColor);

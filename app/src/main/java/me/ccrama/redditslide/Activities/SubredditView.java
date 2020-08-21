@@ -64,6 +64,8 @@ import net.dean.jraw.paginators.Sorting;
 import net.dean.jraw.paginators.TimePeriod;
 import net.dean.jraw.paginators.UserRecordPaginator;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -368,8 +370,8 @@ public class SubredditView extends BaseActivity {
                                 .input(getString(R.string.search_msg), "",
                                         new MaterialDialog.InputCallback() {
                                             @Override
-                                            public void onInput(MaterialDialog materialDialog,
-                                                    CharSequence charSequence) {
+                                            public void onInput(@NotNull MaterialDialog materialDialog,
+                                                                CharSequence charSequence) {
                                                 term = charSequence.toString();
                                             }
                                         })
@@ -799,7 +801,7 @@ public class SubredditView extends BaseActivity {
                                                                         new MaterialDialog.InputCallback() {
                                                                             @Override
                                                                             public void onInput(
-                                                                                    MaterialDialog dialog,
+                                                                                    @NotNull MaterialDialog dialog,
                                                                                     CharSequence input) {
 
                                                                             }
@@ -809,8 +811,8 @@ public class SubredditView extends BaseActivity {
                                                                         new MaterialDialog.SingleButtonCallback() {
                                                                             @Override
                                                                             public void onClick(
-                                                                                    MaterialDialog dialog,
-                                                                                    DialogAction which) {
+                                                                                    @NotNull MaterialDialog dialog,
+                                                                                    @NotNull DialogAction which) {
                                                                                 final String flair =
                                                                                         dialog.getInputEditText()
                                                                                                 .getText()
@@ -1905,6 +1907,7 @@ public class SubredditView extends BaseActivity {
             return 2;
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 
@@ -1924,7 +1927,7 @@ public class SubredditView extends BaseActivity {
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        public void setPrimaryItem(@NotNull ViewGroup container, int position, @NotNull Object object) {
             super.setPrimaryItem(container, position, object);
             doSetPrimary(object, position);
         }
@@ -2048,11 +2051,12 @@ public class SubredditView extends BaseActivity {
         }
 
         @Override
-        public int getItemPosition(Object object) {
+        public int getItemPosition(@NotNull Object object) {
             if (object != storedFragment) return POSITION_NONE;
             return POSITION_UNCHANGED;
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 

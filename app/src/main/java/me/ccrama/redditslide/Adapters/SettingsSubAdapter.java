@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.AlertDialogWrapper;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import me.ccrama.redditslide.Activities.MainActivity;
@@ -44,6 +46,7 @@ public class SettingsSubAdapter extends RecyclerView.Adapter<SettingsSubAdapter.
         this.context = context;
     }
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.subforsublisteditor, parent, false);

@@ -38,6 +38,7 @@ import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.html.HtmlRenderer;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
@@ -1019,7 +1020,7 @@ public class DoEditorActions {
                             }
 
                             @Override
-                            public void writeTo(BufferedSink sink) {
+                            public void writeTo(@NotNull BufferedSink sink) {
 
                             }
                         })
@@ -1118,7 +1119,7 @@ public class DoEditorActions {
                         .customView(layout, false)
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
-                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                            public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                 dialog.dismiss();
                                 String s = "["
                                         + descriptionBox.getText().toString()
@@ -1216,7 +1217,7 @@ public class DoEditorActions {
         }
 
         @Override
-        public void writeTo(BufferedSink sink) throws IOException {
+        public void writeTo(@NotNull BufferedSink sink) throws IOException {
             mCountingSink = new CountingSink(sink);
             BufferedSink bufferedSink = Okio.buffer(mCountingSink);
             mDelegate.writeTo(bufferedSink);
@@ -1231,7 +1232,7 @@ public class DoEditorActions {
             }
 
             @Override
-            public void write(Buffer source, long byteCount) throws IOException {
+            public void write(@NotNull Buffer source, long byteCount) throws IOException {
                 super.write(source, byteCount);
                 bytesWritten += byteCount;
                 mListener.onProgress((int) (100F * bytesWritten / contentLength()));

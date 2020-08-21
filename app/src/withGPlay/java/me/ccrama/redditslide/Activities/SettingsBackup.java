@@ -29,6 +29,8 @@ import com.google.android.gms.drive.MetadataChangeSet;
 import com.google.android.material.snackbar.Snackbar;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.Closeable;
@@ -113,7 +115,7 @@ public class SettingsBackup extends BaseActivityAnim
                                                 new ResultCallback<DriveApi.DriveContentsResult>() {
                                                     @Override
                                                     public void onResult(
-                                                            DriveApi.DriveContentsResult result) {
+                                                            @NotNull DriveApi.DriveContentsResult result) {
                                                         final String copy =
                                                                 getApplicationInfo().dataDir
                                                                         + File.separator

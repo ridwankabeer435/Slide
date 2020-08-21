@@ -18,6 +18,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -335,7 +337,7 @@ public class CommentsScreen extends BaseActivityAnim implements SubmissionDispla
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        public void setPrimaryItem(@NotNull ViewGroup container, int position, @NotNull Object object) {
             super.setPrimaryItem(container, position, object);
             if (getCurrentFragment() != object && object instanceof CommentPage) {
                 mCurrentFragment = (CommentPage) object;
@@ -346,6 +348,7 @@ public class CommentsScreen extends BaseActivityAnim implements SubmissionDispla
             }
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
             if (i <= firstPage || i == 0) {

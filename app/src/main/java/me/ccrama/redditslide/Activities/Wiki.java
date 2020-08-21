@@ -16,6 +16,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import net.dean.jraw.managers.WikiManager;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -236,6 +238,7 @@ public class Wiki extends BaseActivityAnim implements WikiPage.WikiPageListener 
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
             WikiPage f = new WikiPage();

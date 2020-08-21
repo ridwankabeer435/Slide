@@ -15,6 +15,8 @@
 
 package me.ccrama.redditslide.util;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Represents the result of an in-app billing operation.
  * A result is composed of a response code (an integer) and possibly a
@@ -52,6 +54,7 @@ public class IabResult {
         return !isSuccess();
     }
 
+    @NotNull
     public String toString() {
         return "IabResult: " + getMessage();
     }

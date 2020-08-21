@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.ColorPreferences;
 import me.ccrama.redditslide.Fragments.ReadLaterView;
 import me.ccrama.redditslide.R;
@@ -40,6 +42,7 @@ public class PostReadLater extends BaseActivityAnim {
 
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
             return new ReadLaterView();

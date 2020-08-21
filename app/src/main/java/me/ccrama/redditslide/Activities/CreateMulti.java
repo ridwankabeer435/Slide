@@ -47,6 +47,8 @@ import net.dean.jraw.models.MultiReddit;
 import net.dean.jraw.models.MultiSubreddit;
 import net.dean.jraw.models.Subreddit;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -213,21 +215,21 @@ public class CreateMulti extends BaseActivityAnim {
                                 .alwaysCallInputCallback()
                                 .input(getString(R.string.reorder_subreddit_name), null, false, new MaterialDialog.InputCallback() {
                                     @Override
-                                    public void onInput(MaterialDialog dialog, CharSequence raw) {
+                                    public void onInput(@NotNull MaterialDialog dialog, CharSequence raw) {
                                         input = raw.toString().replaceAll("\\s", ""); //remove whitespace from input
                                     }
                                 })
                                 .positiveText(R.string.btn_add)
                                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                                     @Override
-                                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                         new AsyncGetSubreddit().execute(input);
                                     }
                                 })
                                 .negativeText(R.string.btn_cancel)
                                 .onNegative(new MaterialDialog.SingleButtonCallback() {
                                     @Override
-                                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
 
                                     }
                                 }).show();
@@ -292,6 +294,7 @@ public class CreateMulti extends BaseActivityAnim {
             this.items = items;
         }
 
+        @NotNull
         @Override
         public CustomAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.subforsublist, parent, false);

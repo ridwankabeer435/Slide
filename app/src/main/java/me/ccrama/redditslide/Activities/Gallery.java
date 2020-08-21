@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +99,7 @@ public class Gallery extends FullScreenActivity implements SubmissionDisplay {
         rv.setAdapter(recyclerAdapter);
         rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 int[] firstVisibleItems;
                 firstVisibleItems =
@@ -138,7 +140,7 @@ public class Gallery extends FullScreenActivity implements SubmissionDisplay {
     RecyclerView rv;
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
         final int currentOrientation = newConfig.orientation;
@@ -225,6 +227,7 @@ public class Gallery extends FullScreenActivity implements SubmissionDisplay {
 
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 

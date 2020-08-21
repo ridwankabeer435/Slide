@@ -49,6 +49,7 @@ import com.devspark.robototextview.widget.RobotoTextView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -780,7 +781,7 @@ public class SpoilerRobotoTextView extends RobotoTextView implements ClickableTe
         }
 
         @Override
-        public void updateDrawState(TextPaint ds) {
+        public void updateDrawState(@NotNull TextPaint ds) {
             super.updateDrawState(ds);
             ds.setUnderlineText(false);
         }

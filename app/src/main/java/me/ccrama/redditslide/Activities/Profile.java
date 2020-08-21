@@ -47,6 +47,8 @@ import net.dean.jraw.models.Trophy;
 import net.dean.jraw.paginators.Sorting;
 import net.dean.jraw.paginators.TimePeriod;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -302,6 +304,7 @@ public class Profile extends BaseActivityAnim {
 
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 
@@ -620,7 +623,7 @@ public class Profile extends BaseActivityAnim {
                                     .title(getString(R.string.profile_tag_set, name))
                                     .input(getString(R.string.profile_tag), UserTags.getUserTag(name), false, new MaterialDialog.InputCallback() {
                                         @Override
-                                        public void onInput(MaterialDialog dialog, CharSequence input) {
+                                        public void onInput(@NotNull MaterialDialog dialog, CharSequence input) {
 
                                         }
                                     }).positiveText(R.string.profile_btn_tag)
@@ -631,7 +634,7 @@ public class Profile extends BaseActivityAnim {
                             }
                             b.onPositive(new MaterialDialog.SingleButtonCallback() {
                                 @Override
-                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                     UserTags.setUserTag(name, dialog.getInputEditText().getText().toString());
                                     String tag = UserTags.getUserTag(name);
                                     if (tag.isEmpty()) {
@@ -643,7 +646,7 @@ public class Profile extends BaseActivityAnim {
                                 }
                             }).onNeutral(null).onNegative(new MaterialDialog.SingleButtonCallback() {
                                 @Override
-                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                     UserTags.removeUserTag(name);
                                     String tag = UserTags.getUserTag(name);
                                     if (tag.isEmpty()) {

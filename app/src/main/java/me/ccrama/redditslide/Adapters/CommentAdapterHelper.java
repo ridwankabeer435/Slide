@@ -62,6 +62,7 @@ import net.dean.jraw.models.SubredditRule;
 import net.dean.jraw.models.VoteDirection;
 
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -193,7 +194,7 @@ public class CommentAdapterHelper {
                                 .negativeText(R.string.btn_cancel)
                                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                                     @Override
-                                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    public void onClick(@NotNull MaterialDialog dialog, @NotNull DialogAction which) {
                                         RadioGroup reasonGroup = dialog.getCustomView()
                                                 .findViewById(R.id.report_reasons);
                                         String reportReason;
@@ -498,7 +499,7 @@ public class CommentAdapterHelper {
                                                         false, new MaterialDialog.InputCallback() {
                                                             @Override
                                                             public void onInput(
-                                                                    MaterialDialog dialog,
+                                                                    @NotNull MaterialDialog dialog,
                                                                     CharSequence input) {
 
                                                             }
@@ -508,8 +509,8 @@ public class CommentAdapterHelper {
                                                         new MaterialDialog.SingleButtonCallback() {
                                                             @Override
                                                             public void onClick(
-                                                                    MaterialDialog dialog,
-                                                                    DialogAction which) {
+                                                                    @NotNull MaterialDialog dialog,
+                                                                    @NotNull DialogAction which) {
                                                                 final String flair =
                                                                         dialog.getInputEditText()
                                                                                 .getText()
@@ -1226,7 +1227,7 @@ public class CommentAdapterHelper {
                         mContext.getString(R.string.mod_remove_template), false,
                         new MaterialDialog.InputCallback() {
                             @Override
-                            public void onInput(MaterialDialog dialog, CharSequence input) {
+                            public void onInput(@NotNull MaterialDialog dialog, CharSequence input) {
                             }
                         })
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES)
@@ -1240,7 +1241,7 @@ public class CommentAdapterHelper {
                 })
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
-                    public void onClick(final MaterialDialog dialog, DialogAction which) {
+                    public void onClick(@NotNull final MaterialDialog dialog, @NotNull DialogAction which) {
                         removeCommentReason(comment, mContext, holder, adapter,
                                 dialog.getInputEditText().getText().toString());
                     }

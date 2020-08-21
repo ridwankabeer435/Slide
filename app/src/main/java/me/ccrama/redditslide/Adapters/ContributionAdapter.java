@@ -41,6 +41,8 @@ import net.dean.jraw.models.Contribution;
 import net.dean.jraw.models.Submission;
 import net.dean.jraw.models.VoteDirection;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -111,8 +113,9 @@ public class ContributionAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return 2;
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
 
         if (i == SPACER) {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.spacer, viewGroup, false);
@@ -194,7 +197,7 @@ public class ContributionAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder firstHolder, final int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder firstHolder, final int pos) {
         int i = pos != 0 ? pos - 1 : pos;
 
         if (firstHolder instanceof SubmissionViewHolder) {

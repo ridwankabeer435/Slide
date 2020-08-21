@@ -37,6 +37,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import net.dean.jraw.managers.AccountManager;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -134,8 +136,8 @@ public class NewsActivity extends BaseActivity
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions,
+                                           @NotNull int[] grantResults) {
         if (requestCode == 1) {// If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -183,7 +185,7 @@ public class NewsActivity extends BaseActivity
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             changed = true;
@@ -592,6 +594,7 @@ public class NewsActivity extends BaseActivity
             }
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 
@@ -612,7 +615,7 @@ public class NewsActivity extends BaseActivity
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        public void setPrimaryItem(@NotNull ViewGroup container, int position, @NotNull Object object) {
             if (reloadItemNumber == position || reloadItemNumber < 0) {
                 super.setPrimaryItem(container, position, object);
                 if (usedArray.size() >= position) doSetPrimary(object, position);

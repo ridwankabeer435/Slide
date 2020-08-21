@@ -12,6 +12,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.ColorPreferences;
 import me.ccrama.redditslide.Fragments.InboxPage;
 import me.ccrama.redditslide.Fragments.ModLog;
@@ -80,13 +82,14 @@ public class ModQueue extends BaseActivityAnim {
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        public void setPrimaryItem(@NotNull ViewGroup container, int position, @NotNull Object object) {
             if (getCurrentFragment() != object) {
                 mCurrentFragment = ((Fragment) object);
             }
             super.setPrimaryItem(container, position, object);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 

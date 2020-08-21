@@ -11,6 +11,8 @@ import androidx.annotation.ColorRes;
 
 import com.devspark.robototextview.RobotoTypefaces;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Created by carlo_000 on 3/11/2016.
  */
@@ -39,7 +41,8 @@ public class RoundedBackgroundSpan extends ReplacementSpan {
 
 
     @Override
-    public void draw(Canvas canvas, CharSequence oldText, int start, int end, float x, int top, int y, int bottom, Paint paint) {
+    public void draw(@NotNull Canvas canvas, CharSequence oldText, int start, int end, float x,
+                     int top, int y, int bottom, @NotNull Paint paint) {
         int offset = 0;
         if (half) {
             offset = (bottom - top) / 6;

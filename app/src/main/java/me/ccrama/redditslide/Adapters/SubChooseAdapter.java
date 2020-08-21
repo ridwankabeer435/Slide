@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -60,6 +62,7 @@ public class SubChooseAdapter extends ArrayAdapter<String> {
         return false;
     }
 
+    @NotNull
     @Override
     public Filter getFilter() {
 
@@ -77,8 +80,9 @@ public class SubChooseAdapter extends ArrayAdapter<String> {
         }
 	}
 
-	@Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+	@NotNull
+    @Override
+    public View getView(final int position, View convertView, @NotNull ViewGroup parent) {
         ViewHolderItem viewHolderItem;
 		if (convertView == null) {
 			convertView = LayoutInflater.from(getContext()).inflate(R.layout.subforsublist, parent, false);

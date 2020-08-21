@@ -45,6 +45,7 @@ import net.dean.jraw.http.NetworkException;
 
 import org.apache.commons.lang3.tuple.Triple;
 import org.apache.commons.text.StringEscapeUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -672,8 +673,9 @@ public class Reddit extends MultiDexApplication implements Application.ActivityL
 
     //IPV6 workaround by /u/talklittle
     public static class GfycatIpv4Dns implements Dns {
+        @NotNull
         @Override
-        public List<InetAddress> lookup(String hostname) throws UnknownHostException {
+        public List<InetAddress> lookup(@NotNull String hostname) throws UnknownHostException {
             if (ContentType.hostContains(hostname, "gfycat.com")) {
                 InetAddress[] addresses = InetAddress.getAllByName(hostname);
                 if (addresses == null || addresses.length == 0) {

@@ -378,7 +378,7 @@ public class GifUtils {
         }
 
         public AsyncLoadGif(@NotNull Activity c, @NotNull ExoVideoView video,
-                @Nullable ProgressBar p, @Nullable View placeholder, @NotNull boolean closeIfNull,
+                @Nullable ProgressBar p, @Nullable View placeholder, boolean closeIfNull,
                 boolean autostart, String subreddit) {
             this.c = c;
             this.video = video;

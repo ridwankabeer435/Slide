@@ -8,6 +8,8 @@ import android.net.Uri;
 
 import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder;
 
+import org.jetbrains.annotations.NotNull;
+
 import rapid.decoder.BitmapDecoder;
 
 /**
@@ -22,15 +24,17 @@ public class RapidImageRegionDecoder implements ImageRegionDecoder {
 
     private BitmapDecoder decoder;
 
+    @NotNull
     @Override
-    public Point init(Context context, Uri uri) throws Exception {
+    public Point init(Context context, @NotNull Uri uri) throws Exception {
         decoder = BitmapDecoder.from(context, uri);
         decoder.useBuiltInDecoder(true);
         return new Point(decoder.sourceWidth(), decoder.sourceHeight());
     }
 
+    @NotNull
     @Override
-    public synchronized Bitmap decodeRegion(Rect sRect, int sampleSize) {
+    public synchronized Bitmap decodeRegion(@NotNull Rect sRect, int sampleSize) {
         try {
             return decoder.reset().region(sRect).scale(sRect.width()/sampleSize, sRect.height()/sampleSize).decode();
         } catch (Exception e) {

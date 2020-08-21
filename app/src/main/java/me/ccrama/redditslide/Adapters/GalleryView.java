@@ -21,6 +21,8 @@ import com.cocosw.bottomsheet.BottomSheet;
 import net.dean.jraw.models.Submission;
 import net.dean.jraw.models.Thumbnails;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import me.ccrama.redditslide.Activities.Album;
@@ -52,6 +54,7 @@ public class GalleryView extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.subreddit = subreddit;
     }
 
+    @NotNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_image, parent, false);
@@ -64,7 +67,7 @@ public class GalleryView extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder2, final int i) {
+    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder holder2, final int i) {
         if (holder2 instanceof AlbumViewHolder) {
 
             final AlbumViewHolder holder = (AlbumViewHolder) holder2;

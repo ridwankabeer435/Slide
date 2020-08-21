@@ -15,6 +15,7 @@
 
 package me.ccrama.redditslide.util;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -87,6 +88,7 @@ public class Purchase {
         return mSignature;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "PurchaseInfo(type:" + mItemType + "):" + mOriginalJson;

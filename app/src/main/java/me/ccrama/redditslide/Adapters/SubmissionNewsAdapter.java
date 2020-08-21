@@ -24,6 +24,8 @@ import com.google.android.material.snackbar.Snackbar;
 import net.dean.jraw.managers.AccountManager;
 import net.dean.jraw.models.Submission;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -127,8 +129,9 @@ public class SubmissionNewsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     int tag = 1;
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         tag++;
 
         if (i == SPACER) {
@@ -192,7 +195,7 @@ public class SubmissionNewsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder2, final int pos) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder holder2, final int pos) {
 
         int i = pos != 0 ? pos - 1 : pos;
 

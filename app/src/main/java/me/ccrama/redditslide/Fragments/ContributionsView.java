@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.Activities.Profile;
 import me.ccrama.redditslide.Adapters.ContributionAdapter;
 import me.ccrama.redditslide.Adapters.ContributionPosts;
@@ -85,7 +87,7 @@ public class ContributionsView extends Fragment {
         );
         rv.addOnScrollListener(new ToolbarScrollHideHandler(getActivity().findViewById(R.id.toolbar), getActivity().findViewById(R.id.header)) {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 visibleItemCount = rv.getLayoutManager().getChildCount();
                 totalItemCount = rv.getLayoutManager().getItemCount();

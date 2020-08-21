@@ -118,6 +118,7 @@ import net.dean.jraw.paginators.SubredditPaginator;
 import net.dean.jraw.paginators.TimePeriod;
 import net.dean.jraw.paginators.UserRecordPaginator;
 
+import org.jetbrains.annotations.NotNull;
 import org.ligi.snackengage.SnackEngage;
 import org.ligi.snackengage.conditions.AfterNumberOfOpportunities;
 import org.ligi.snackengage.conditions.NeverAgainWhenClickedOnce;
@@ -410,8 +411,8 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions,
+                                           @NotNull int[] grantResults) {
         if (requestCode == 1) {// If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -459,7 +460,7 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             changed = true;
@@ -469,7 +470,7 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(@NotNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putStringArrayList(SUBS, usedArray);
         savedInstanceState.putBoolean(LOGGED_IN, Authentication.isLoggedIn);
@@ -676,8 +677,8 @@ public class MainActivity extends BaseActivity
                                 .input(getString(R.string.search_msg), "",
                                         new MaterialDialog.InputCallback() {
                                             @Override
-                                            public void onInput(MaterialDialog materialDialog,
-                                                    CharSequence charSequence) {
+                                            public void onInput(@NotNull MaterialDialog materialDialog,
+                                                                CharSequence charSequence) {
                                                 term = charSequence.toString();
                                             }
                                         });
@@ -3173,7 +3174,7 @@ public class MainActivity extends BaseActivity
                                                                         new MaterialDialog.InputCallback() {
                                                                             @Override
                                                                             public void onInput(
-                                                                                    MaterialDialog dialog,
+                                                                                    @NotNull MaterialDialog dialog,
                                                                                     CharSequence input) {
 
                                                                             }
@@ -3183,8 +3184,8 @@ public class MainActivity extends BaseActivity
                                                                         new MaterialDialog.SingleButtonCallback() {
                                                                             @Override
                                                                             public void onClick(
-                                                                                    MaterialDialog dialog,
-                                                                                    DialogAction which) {
+                                                                                    @NotNull MaterialDialog dialog,
+                                                                                    @NotNull DialogAction which) {
                                                                                 final String flair =
                                                                                         dialog.getInputEditText()
                                                                                                 .getText()
@@ -5086,6 +5087,7 @@ public class MainActivity extends BaseActivity
             }
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 
@@ -5106,7 +5108,7 @@ public class MainActivity extends BaseActivity
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        public void setPrimaryItem(@NotNull ViewGroup container, int position, @NotNull Object object) {
             if (reloadItemNumber == position || reloadItemNumber < 0) {
                 super.setPrimaryItem(container, position, object);
                 if (usedArray.size() >= position) doSetPrimary(object, position);
@@ -5248,6 +5250,7 @@ public class MainActivity extends BaseActivity
             }
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int i) {
 
@@ -5316,7 +5319,7 @@ public class MainActivity extends BaseActivity
         }
 
         @Override
-        public int getItemPosition(Object object) {
+        public int getItemPosition(@NotNull Object object) {
             if (object != storedFragment) return POSITION_NONE;
             return POSITION_UNCHANGED;
         }

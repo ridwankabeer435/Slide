@@ -10,6 +10,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.afollestad.materialdialogs.AlertDialogWrapper;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.Adapters.ContributionAdapter;
 import me.ccrama.redditslide.Adapters.SubredditSearchPosts;
 import me.ccrama.redditslide.ColorPreferences;
@@ -85,7 +87,7 @@ public class Related extends BaseActivityAnim {
 
         rv.addOnScrollListener(new ToolbarScrollHideHandler(mToolbar, findViewById(R.id.header)) {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
                 visibleItemCount = rv.getLayoutManager().getChildCount();

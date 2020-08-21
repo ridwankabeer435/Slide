@@ -32,6 +32,8 @@ import net.dean.jraw.models.Subreddit;
 import net.dean.jraw.paginators.Sorting;
 import net.dean.jraw.paginators.TimePeriod;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -976,7 +978,7 @@ public class SettingsGeneralFragment<ActivityType extends AppCompatActivity & Fo
                                         .input(context.getString(R.string.reorder_subreddit_name), null,
                                                 false, new MaterialDialog.InputCallback() {
                                                     @Override
-                                                    public void onInput(MaterialDialog dialog,
+                                                    public void onInput(@NotNull MaterialDialog dialog,
                                                                         CharSequence raw) {
                                                         input = raw.toString()
                                                                 .replaceAll("\\s",
@@ -1113,14 +1115,12 @@ public class SettingsGeneralFragment<ActivityType extends AppCompatActivity & Fo
         }
     }
 
-    public void onFolderSelection(FolderChooserDialogCreate dialog, File folder, boolean isSaveToLocation) {
-        if (folder != null) {
-            Reddit.appRestart.edit().putString("imagelocation", folder.getAbsolutePath()).apply();
-            Toast.makeText(context,
-                    context.getString(R.string.settings_set_image_location, folder.getAbsolutePath()),
-                    Toast.LENGTH_LONG).show();
-            ((TextView) context.findViewById(R.id.settings_general_location)).setText(folder.getAbsolutePath());
-        }
+    public void onFolderSelection(@NotNull FolderChooserDialogCreate dialog, @NotNull File folder, boolean isSaveToLocation) {
+        Reddit.appRestart.edit().putString("imagelocation", folder.getAbsolutePath()).apply();
+        Toast.makeText(context,
+                context.getString(R.string.settings_set_image_location, folder.getAbsolutePath()),
+                Toast.LENGTH_LONG).show();
+        ((TextView) context.findViewById(R.id.settings_general_location)).setText(folder.getAbsolutePath());
     }
 
 }

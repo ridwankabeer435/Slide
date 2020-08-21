@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.ccrama.redditslide.Fragments.SubredditListView;
 import me.ccrama.redditslide.R;
 
@@ -43,7 +45,7 @@ public class SubredditSearch extends BaseActivityAnim {
                         .inputRange(3, 100)
                         .input(getString(R.string.discover_search), term, new MaterialDialog.InputCallback() {
                             @Override
-                            public void onInput(MaterialDialog dialog, CharSequence input) {
+                            public void onInput(@NotNull MaterialDialog dialog, CharSequence input) {
                                 if (input.length() >= 3) {
                                     dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
                                 } else {

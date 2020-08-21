@@ -7,6 +7,8 @@ import android.view.View;
 
 import androidx.viewpager.widget.ViewPager;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Created by carlo_000 on 12/7/2015.
  */
@@ -32,7 +34,7 @@ public class VerticalViewPager extends ViewPager {
     private static class VerticalPageTransformer implements ViewPager.PageTransformer {
         private static final float MIN_SCALE = 0.75f;
         @Override
-        public void transformPage(View view, float position) {
+        public void transformPage(@NotNull View view, float position) {
 
             if (position < -1) { // [-Infinity,-1)
                 // This page is way off-screen to the left.

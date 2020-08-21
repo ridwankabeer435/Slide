@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Created by carlo_000 on 4/18/2016.
  */
@@ -24,12 +26,13 @@ public class OfflineSubAdapter extends ArrayAdapter<String> {
 
     String[] titles;
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+    public View getDropDownView(int position, View convertView, @NotNull ViewGroup parent) {
         return getCustomView(position, convertView, parent);
     }
 
+    @NotNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NotNull ViewGroup parent) {
         return getCustomView(position, convertView, parent);
     }
 

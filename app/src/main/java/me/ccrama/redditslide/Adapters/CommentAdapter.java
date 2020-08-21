@@ -57,6 +57,8 @@ import net.dean.jraw.models.Contribution;
 import net.dean.jraw.models.Submission;
 import net.dean.jraw.models.VoteDirection;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -218,8 +220,9 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         switch (i) {
             case SPACER: {
                 View v = LayoutInflater.from(viewGroup.getContext())
@@ -308,7 +311,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder firstHolder, int old) {
+    public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder firstHolder, int old) {
         int pos = old != 0 ? old - 1 : old;
         if (firstHolder instanceof CommentViewHolder) {
             final CommentViewHolder holder = (CommentViewHolder) firstHolder;
