@@ -35,7 +35,7 @@
             android:layout_height="36dp"
             app:tint="#424242"
             android:padding="8dp"
-            app:srcCompat="@drawable/refresh"
+            app:srcCompat="@drawable/ic_refresh"
             android:id="@+id/refresh"
             android:layout_toLeftOf="@+id/open"
             android:layout_margin="2dp"
