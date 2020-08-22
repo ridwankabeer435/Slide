@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:sothree="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sliding_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +11,6 @@
     sothree:umanoShadowHeight="4dp">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/margin"
@@ -46,7 +46,7 @@
                 android:theme="@style/Ripple.List"
                 android:layout_toLeftOf="@+id/save"
                 android:padding="15dp"
-                app:srcCompat="@drawable/hd"
+                sothree:srcCompat="@drawable/hd"
                 app:tint="#e1e1e1" />
             <ImageView
                 android:id="@+id/comments"
@@ -55,7 +55,7 @@
                 android:theme="@style/Ripple.List"
                 android:layout_alignParentLeft="true"
                 android:padding="15dp"
-                app:srcCompat="@drawable/commentchange"
+                sothree:srcCompat="@drawable/commentchange"
                 app:tint="#e1e1e1" />
             <ImageView
                 android:id="@+id/save"
@@ -64,7 +64,7 @@
                 android:layout_toLeftOf="@+id/more"
                 android:theme="@style/Ripple.List"
                 android:padding="15dp"
-                app:srcCompat="@drawable/save"
+                sothree:srcCompat="@drawable/save"
                 app:tint="#e1e1e1" />
             <ImageView
                 android:id="@+id/more"
@@ -78,7 +78,7 @@
                 android:paddingTop="15dp"
                 android:layout_alignParentRight="true"
                 android:paddingBottom="15dp"
-                app:srcCompat="@drawable/more"
+                sothree:srcCompat="@drawable/more"
                 app:tint="#e1e1e1" />
 
         </RelativeLayout>
